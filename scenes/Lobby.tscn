@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/retro-gaming.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/fonts/retro-gaming-56.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/Lobby.gd" type="Script" id=4]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="CenteredEntries" type="CenterContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="TitleAndEntries" type="VBoxContainer" parent="CenteredEntries"]
+margin_left = 297.0
+margin_top = 200.0
+margin_right = 983.0
+margin_bottom = 519.0
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="CenteredTitle" type="CenterContainer" parent="CenteredEntries/TitleAndEntries"]
+margin_right = 686.0
+margin_bottom = 147.0
+
+[node name="Title" type="Label" parent="CenteredEntries/TitleAndEntries/CenteredTitle"]
+margin_right = 686.0
+margin_bottom = 147.0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "Waiting for players
+"
+
+[node name="CenteredPlayerCount" type="CenterContainer" parent="CenteredEntries/TitleAndEntries"]
+margin_top = 151.0
+margin_right = 686.0
+margin_bottom = 213.0
+
+[node name="PlayerCount" type="Label" parent="CenteredEntries/TitleAndEntries/CenteredPlayerCount"]
+unique_name_in_owner = true
+margin_left = 45.0
+margin_right = 640.0
+margin_bottom = 62.0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+text = "Players Joined: 0/5"
+
+[node name="HSeparator" type="HSeparator" parent="CenteredEntries/TitleAndEntries"]
+margin_top = 217.0
+margin_right = 686.0
+margin_bottom = 265.0
+custom_constants/separation = 48
+
+[node name="CancelButton" type="Button" parent="CenteredEntries/TitleAndEntries"]
+margin_top = 269.0
+margin_right = 686.0
+margin_bottom = 319.0
+theme = ExtResource( 2 )
+text = "Cancel"
+
+[node name="CenteredIP" type="CenterContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -127.0
+
+[node name="IpLabel" type="Label" parent="CenteredIP"]
+unique_name_in_owner = true
+margin_left = 510.0
+margin_top = 32.0
+margin_right = 770.0
+margin_bottom = 94.0
+theme = ExtResource( 2 )
+text = "Your IP: "
+
+[node name="DialogOverlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1280, 720 )
+color = Color( 0, 0, 0, 0.705882 )
+
+[node name="Dialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -329.0
+margin_top = -82.0
+margin_right = 329.0
+margin_bottom = 82.0
+theme = ExtResource( 2 )
+popup_exclusive = true
+window_title = ""
+dialog_text = "Server Disconnected"
+dialog_hide_on_ok = false
+
+[connection signal="pressed" from="CenteredEntries/TitleAndEntries/CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="confirmed" from="Dialog" to="." method="_on_Dialog_confirmed"]

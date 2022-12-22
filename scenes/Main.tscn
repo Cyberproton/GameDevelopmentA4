@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/retro-gaming-96.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/Main.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/retro-gaming.tres" type="DynamicFont" id=4]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="CenteredEntries" type="CenterContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="TitleAndEntries" type="VBoxContainer" parent="CenteredEntries"]
+margin_left = 316.0
+margin_top = 133.0
+margin_right = 964.0
+margin_bottom = 586.0
+custom_constants/separation = 32
+alignment = 1
+
+[node name="CenteredTitle" type="CenterContainer" parent="CenteredEntries/TitleAndEntries"]
+margin_right = 648.0
+margin_bottom = 123.0
+
+[node name="Title" type="Label" parent="CenteredEntries/TitleAndEntries/CenteredTitle"]
+margin_left = 82.0
+margin_right = 565.0
+margin_bottom = 123.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Abalone"
+
+[node name="HSeparator" type="HSeparator" parent="CenteredEntries/TitleAndEntries"]
+margin_top = 155.0
+margin_right = 648.0
+margin_bottom = 159.0
+
+[node name="Title2" type="Label" parent="CenteredEntries/TitleAndEntries"]
+margin_top = 191.0
+margin_right = 648.0
+margin_bottom = 253.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "A game about marbles"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CenteredEntries/TitleAndEntries"]
+margin_top = 285.0
+margin_right = 648.0
+margin_bottom = 289.0
+
+[node name="Entries" type="VBoxContainer" parent="CenteredEntries/TitleAndEntries"]
+margin_top = 321.0
+margin_right = 648.0
+margin_bottom = 453.0
+custom_constants/separation = 32
+
+[node name="PvCButton" type="Button" parent="CenteredEntries/TitleAndEntries/Entries"]
+margin_right = 648.0
+margin_bottom = 50.0
+theme = ExtResource( 1 )
+text = "Vs. Computer"
+
+[node name="PvPButton" type="Button" parent="CenteredEntries/TitleAndEntries/Entries"]
+visible = false
+margin_top = 82.0
+margin_right = 648.0
+margin_bottom = 132.0
+theme = ExtResource( 1 )
+text = "Vs. Player"
+
+[node name="MultiplayerButton" type="Button" parent="CenteredEntries/TitleAndEntries/Entries"]
+margin_top = 82.0
+margin_right = 648.0
+margin_bottom = 132.0
+theme = ExtResource( 1 )
+text = "Multiplayer"
+
+[connection signal="pressed" from="CenteredEntries/TitleAndEntries/Entries/PvCButton" to="." method="_on_PvCButton_pressed"]
+[connection signal="pressed" from="CenteredEntries/TitleAndEntries/Entries/PvPButton" to="." method="_on_PvPButton_pressed"]
+[connection signal="pressed" from="CenteredEntries/TitleAndEntries/Entries/MultiplayerButton" to="." method="_on_MultiplayerButton_pressed"]

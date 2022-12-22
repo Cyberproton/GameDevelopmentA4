@@ -1,0 +1,126 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Line",
+"language": "GDScript",
+"path": "res://scripts/Line.gd"
+}, {
+"base": "Reference",
+"class": "LineQuery",
+"language": "GDScript",
+"path": "res://scripts/LineQuery.gd"
+}, {
+"base": "Reference",
+"class": "Marble",
+"language": "GDScript",
+"path": "res://scripts/Marble.gd"
+}, {
+"base": "Reference",
+"class": "Move",
+"language": "GDScript",
+"path": "res://scripts/Move.gd"
+}, {
+"base": "Reference",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/Player.gd"
+}, {
+"base": "Reference",
+"class": "Policy",
+"language": "GDScript",
+"path": "res://scripts/ai/Policy.gd"
+}, {
+"base": "Reference",
+"class": "Rule",
+"language": "GDScript",
+"path": "res://scripts/Rule.gd"
+}, {
+"base": "Reference",
+"class": "State",
+"language": "GDScript",
+"path": "res://scripts/State.gd"
+}, {
+"base": "Node",
+"class": "StateQuery",
+"language": "GDScript",
+"path": "res://scripts/StateQuery.gd"
+} ]
+_global_script_class_icons={
+"Line": "",
+"LineQuery": "",
+"Marble": "",
+"Move": "",
+"Player": "",
+"Policy": "",
+"Rule": "",
+"State": "",
+"StateQuery": ""
+}
+
+[application]
+
+config/name="Assignment 4"
+run/main_scene="res://scenes/Main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://scripts/Global.gd"
+Util="*res://scripts/Util.gd"
+Classes="*res://scripts/Classes.gd"
+GameSetup="*res://scripts/GameSetup.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=850
+window/dpi/allow_hidpi=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+threads/thread_model=2
+environment/default_clear_color=Color( 1, 1, 1, 1 )
+environment/default_environment="res://default_env.tres"

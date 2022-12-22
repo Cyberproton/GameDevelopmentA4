@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/sprites/marble.png" type="Texture" id=1]
+[ext_resource path="res://entities/Marble.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0
+
+[node name="Marble" type="Node2D" groups=["marbles"]]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+
+[connection signal="input_event" from="Detector" to="." method="_on_Detector_input_event"]
+[connection signal="mouse_entered" from="Detector" to="." method="_on_Detector_mouse_entered"]
+[connection signal="mouse_exited" from="Detector" to="." method="_on_Detector_mouse_exited"]

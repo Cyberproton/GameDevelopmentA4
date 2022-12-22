@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/Difficulty.gd" type="Script" id=2]
+
+[node name="Difficulty" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="DifficultyLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -339.5
+margin_top = 128.0
+margin_right = 339.5
+margin_bottom = 62.0
+theme = ExtResource( 1 )
+text = "> Choose Your Difficulty"
+
+[node name="DifficultyList" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -220.5
+margin_top = -107.0
+margin_right = 220.5
+margin_bottom = 107.0
+custom_constants/separation = 32
+
+[node name="EasyButton" type="Button" parent="DifficultyList"]
+margin_right = 441.0
+margin_bottom = 50.0
+theme = ExtResource( 1 )
+text = "Impossible To Lose"
+
+[node name="MediumButton" type="Button" parent="DifficultyList"]
+margin_top = 82.0
+margin_right = 441.0
+margin_bottom = 132.0
+theme = ExtResource( 1 )
+text = "Hard"
+
+[node name="HardButton" type="Button" parent="DifficultyList"]
+margin_top = 164.0
+margin_right = 441.0
+margin_bottom = 214.0
+theme = ExtResource( 1 )
+text = "Impossible"
+
+[node name="HSeparator" type="HSeparator" parent="DifficultyList"]
+margin_top = 246.0
+margin_right = 441.0
+margin_bottom = 250.0
+
+[node name="BackButton" type="Button" parent="DifficultyList"]
+margin_top = 282.0
+margin_right = 441.0
+margin_bottom = 332.0
+theme = ExtResource( 1 )
+text = "< Back"
+
+[connection signal="pressed" from="DifficultyList/EasyButton" to="." method="_on_EasyButton_pressed"]
+[connection signal="pressed" from="DifficultyList/MediumButton" to="." method="_on_MediumButton_pressed"]
+[connection signal="pressed" from="DifficultyList/HardButton" to="." method="_on_HardButton_pressed"]
+[connection signal="pressed" from="DifficultyList/BackButton" to="." method="_on_BackButton_pressed"]
